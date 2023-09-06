@@ -22,7 +22,7 @@ struct NotificationScreen: View {
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .multilineTextAlignment(.trailing)) {
                 HStack {
-                    Text("Notify me")
+                    Text("Notify")
                         .bold()
                     Toggle(isOn: $isNotificationsOn) {
                         

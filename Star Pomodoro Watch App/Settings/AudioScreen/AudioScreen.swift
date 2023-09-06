@@ -17,7 +17,7 @@ struct AudioModel: Identifiable {
 
 struct AudioScreen: View {
     
-    @State var data = [AudioModel(id: 0, audioName: "Sparkles", audioNamePlay: "sound-effect-twinklesparkle-115095.wav", isSelected: false), AudioModel(id: 1, audioName: "Forest", audioNamePlay: "Forest.mp3", isSelected: false)]
+    @State var data = [AudioModel(id: 0, audioName: "Sparkles", audioNamePlay: "sound-effect-twinklesparkle-115095.wav", isSelected: false), AudioModel(id: 1, audioName: "Complete", audioNamePlay: "StartPomodoro.mp3", isSelected: false)]
    
     @State var isSelectedString: String = (UserDefaults.standard.string(forKey: "AudioSelected") ?? "")
     

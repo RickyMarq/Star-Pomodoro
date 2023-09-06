@@ -26,5 +26,4 @@ class TagsScreenModelPopulate: ObservableObject {
     func removeTag(atIndex: IndexSet) {
         data.remove(atOffsets: atIndex)
     }
-    
 }

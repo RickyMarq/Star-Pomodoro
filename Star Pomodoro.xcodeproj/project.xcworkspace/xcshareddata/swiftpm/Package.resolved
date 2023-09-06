@@ -1,6 +1,24 @@
 {
   "pins" : [
     {
+      "identity" : "hgcircularslider",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/HamzaGhazouani/HGCircularSlider",
+      "state" : {
+        "revision" : "2b98462d32bf7211851aa73537dbaba5dd80229e",
+        "version" : "2.2.1"
+      }
+    },
+    {
+      "identity" : "lottie-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-ios",
+      "state" : {
+        "revision" : "d6feea26a370019b4d3a85f5984cb95a2734776f",
+        "version" : "4.2.0"
+      }
+    },
+    {
       "identity" : "swiftuicharts",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/willdale/SwiftUICharts",

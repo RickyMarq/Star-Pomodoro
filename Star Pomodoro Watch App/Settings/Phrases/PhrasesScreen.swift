@@ -50,7 +50,9 @@ struct PhrasesScreen: View {
         }
         .listStyle(.plain)
         .onAppear(perform: {
-            UserDefaults.standard.set("Motivational", forKey: "PersonalitySelected")
+            
+            // Remember saving this default value another time
+            
             isPersonalitySelected = UserDefaults.standard.string(forKey: "PersonalitySelected")
             
         })

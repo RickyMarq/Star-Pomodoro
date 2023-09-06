@@ -15,6 +15,28 @@ struct TabViewApp: View {
             SettingsScreen()
         }
         .tabViewStyle(PageTabViewStyle())
+        
+        .onAppear {
+            if UserDefaults.standard.bool(forKey: "notFirstInApp") == false {
+                UserDefaults.standard.setValue(true, forKey: "notFirstInApp")
+                UserDefaults.standard.set("Motivational", forKey: "PersonalitySelected")
+
+                
+                let arrayToSave = [SavedArrayTags(tagName: "Work", minutesFocused: 0),
+                                   SavedArrayTags(tagName: "Study", minutesFocused: 0),
+                                   SavedArrayTags(tagName: "Other", minutesFocused: 0)]
+                
+                do {
+                    let encoded = try JSONEncoder().encode(arrayToSave)
+                    UserDefaults.standard.setValue(encoded, forKey: "FocusedData")
+                } catch {
+                    print(error.localizedDescription)
+                }
+                
+            } else {
+                
+            }
+        }
     }
 }
 

@@ -27,6 +27,7 @@ struct SettingsScreen: View {
                             HStack {
                                 Image(systemName: datum.icon)
                                     .foregroundColor(Color.accentColor)
+                                    .padding()
                                 
                                 Text(datum.name)
                                     .bold()
