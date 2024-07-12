@@ -53,9 +53,9 @@ As seguintes tecnologias foram utilizadas neste projeto:
 ### 🕐 Watch
 
 <p align="center">
-     <img alt="png" src="./Github/Watch1.png" height="250"/>
-     <img alt="png" src="./Github/Watch2.png" height="250"/>
-     <img alt="png" src="./Github/Watch3.png" height="250"/>
+     <img alt="png" src="./Github/watch1.png" height="250"/>
+     <img alt="png" src="./Github/watch2.png" height="250"/>
+     <img alt="png" src="./Github/watch3.png" height="250"/>
 </p>
 
 ## Especificações Técnicas 🛠
