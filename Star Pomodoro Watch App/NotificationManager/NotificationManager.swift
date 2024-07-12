@@ -19,7 +19,6 @@ class NotificationController {
         content.title = title
         content.body = body
         content.sound = .default
-        
         let identifier = identifier
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)

@@ -13,12 +13,35 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        let vc = HomeController()
-        let root = UINavigationController(rootViewController: vc)
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.windowScene = windowScene
-        window?.rootViewController = root
-        window?.makeKeyAndVisible()
+//        let vc = HomeController()
+//        let root = UINavigationController(rootViewController: vc)
+//        window = UIWindow(fram.e: UIScreen.main.bounds)
+//        window?.windowScene = windowScene
+//        window?.rootViewController = root
+//        window?.makeKeyAndVisible()
+        configAppLaunch(windowScene: windowScene)
+    }
+    
+    func configAppLaunch(windowScene: UIWindowScene) {
+        let defaults = UserDefaults.standard
+        if defaults.bool(forKey: "notFirstTimeInApp") == false {
+            defaults.set(true, forKey: "notFirstTimeInApp")
+            defaults.setValue([], forKey: "TagSaved")
+//            defaults.setValue(false, forKey: "keepScreenOn")
+            let ViewController = OnboardingController()
+            let NavigationController = UINavigationController(rootViewController: ViewController)
+            window = UIWindow(frame: UIScreen.main.bounds)
+            window?.windowScene = windowScene
+            window?.rootViewController = NavigationController
+            window?.makeKeyAndVisible()
+        } else {
+            let ViewController = HomeController()
+            let NavigationController = UINavigationController(rootViewController: ViewController)
+            window = UIWindow(frame: UIScreen.main.bounds)
+            window?.windowScene = windowScene
+            window?.rootViewController = NavigationController
+            window?.makeKeyAndVisible()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

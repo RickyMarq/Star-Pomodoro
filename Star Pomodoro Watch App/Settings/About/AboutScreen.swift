@@ -10,7 +10,7 @@ import SwiftUI
 struct AboutScreen: View {
     var body: some View {
         ScrollView {
-            Text("Stars Pomodoro")
+            Text("Star Pomodoro")
                 .bold()
                 .padding(.top, 10)
                 .frame(maxWidth: .infinity, alignment: .center)

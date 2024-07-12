@@ -36,7 +36,6 @@ class HomeService {
         .resume()
     }
     
-    
     func getunmotivadedPhrase(completion: @escaping (Result<StarPomodoroPhrases?, Errors>) -> Void) {
         guard let url = URL(string: "https://star-pomodoro-api.vercel.app/getunmotivotionalrandomphrase") else {return}
         let session = URLSession.shared

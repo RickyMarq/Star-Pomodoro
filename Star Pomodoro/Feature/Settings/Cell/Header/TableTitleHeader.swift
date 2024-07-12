@@ -47,7 +47,7 @@ class TableTitleHeader: UITableViewHeaderFooterView {
         let button = UIButton(type: .close)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .secondarySystemBackground
-        button.layer.cornerRadius = 20
+        button.layer.cornerRadius = 10
         button.layer.masksToBounds = true
         button.clipsToBounds = true
         button.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)

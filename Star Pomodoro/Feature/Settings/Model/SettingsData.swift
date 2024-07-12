@@ -11,12 +11,20 @@ import UIKit
 class SettingsData {
     
     var dataObjc = [Section]()
+    var keepScreenOn = UserDefaults.standard.bool(forKey: "keepScreenOn")
     
     func populateModel() -> [Section] {
         
+//        dataObjc.append(Section(title: "Account", cell: [
+//            
+//            .notificationCell(model: NotificationModel(title: "Notification", icon: UIImage(systemName: "bell.fill") ?? UIImage(), iconBackgroundColor: .systemGray, isOn: false) { doubleHeader in } ),
+//                                                            
+//        ]))
+//        
+        
         dataObjc.append(Section(title: "Notifications", cell: [
             
-            .notificationCell(model: NotificationModel(title: "Notification", icon: UIImage(systemName: "bell.fill") ?? UIImage(), iconBackgroundColor: .systemRed, isOn: false) { doubleHeader in } ),
+            .notificationCell(model: NotificationModel(tag: 0, title: "Notification", icon: UIImage(systemName: "bell.fill") ?? UIImage(), iconBackgroundColor: .systemRed, isOn: false) { doubleHeader in } ),
                                                             
         ]))
         
@@ -24,7 +32,7 @@ class SettingsData {
             
             .phraseCell(model: PhraseCellModel(title: "Motivational", isSelected: true)),
             
-            .phraseCell(model: PhraseCellModel(title: "Unmotivotional", isSelected: false))
+            .phraseCell(model: PhraseCellModel(title: "Demotivational", isSelected: false))
             
         ]))
                                                             
@@ -37,16 +45,24 @@ class SettingsData {
         
         dataObjc.append(Section(title: "More", cell: [
             
-            .informationCell(model: InformationCellModel(title: "Share Star Pomodoro", icon: UIImage(systemName: "square.and.arrow.up") ?? UIImage(), iconBackgroundColor: .systemYellow, infoText: "https://doc-hosting.flycri cket.io/supernova-terms-of-use/648a701f-e928-41b7-9303-d67dbc2c13c8/terms") { doubleHeader in } ),
+//            .notificationCell(model: NotificationModel(tag: 1, title: "Keep Screen On", icon: UIImage(systemName: "lasso") ?? UIImage(), iconBackgroundColor: .systemRed, isOn: keepScreenOn) { doubleHeader in self.pog() } ),
+            
+            .informationCell(model: InformationCellModel(title: "Share Star Pomodoro", icon: UIImage(systemName: "square.and.arrow.up") ?? UIImage(), iconBackgroundColor: .systemIndigo, infoText: "https://apps.apple.com/us/app/star-pomodoro/id6466343741") { doubleHeader in } ),
             
             .documentationCell(model: DocumentationCellModel(title: "Terms & Conditions", icon: UIImage(systemName: "doc") ?? UIImage(), iconBackgroundColor: .systemIndigo, link: "https://doc-hosting.flycricket.io/star-pomodoro-terms-of-use/9b324df7-c08e-4163-a076-07d76fe5d2ab/terms") { doubleHeader in } ),
             
             .documentationCell(model: DocumentationCellModel(title: "Privacy Police", icon: UIImage(systemName: "doc") ?? UIImage(), iconBackgroundColor: .systemIndigo, link: "https://doc-hosting.flycricket.io/star-pomodoro-privacy-policy/9b5bae19-5ea5-4475-88cf-751e2375abe9/privacy") { doubleHeader in } ),
-                
         
         ]))
         
         
         return dataObjc
     }
+    
+    
+    func pog() {
+//        keepScreenOn = UserDefaults.standard.bool(forKey: "keepScreenOn")
+        keepScreenOn = true
+    }
+    
 }

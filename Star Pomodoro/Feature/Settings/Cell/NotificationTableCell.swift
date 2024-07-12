@@ -62,6 +62,11 @@ class NotificationTableCell: UITableViewCell {
         self.iconView.backgroundColor = data.iconBackgroundColor
         self.textCellLabel.text = data.title
 //        self.notificationSwitcher.isOn = UIApplication.shared.isRegisteredForRemoteNotifications
+        print("DEBUG MODE: \(data.isOn)")
+        self.notificationSwitcher.isOn = data.isOn
+        
+        // Tag
+        self.notificationSwitcher.tag = data.tag
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

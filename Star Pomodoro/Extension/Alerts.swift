@@ -26,5 +26,13 @@ class Alerts: NSObject {
         self.controller.present(alert, animated: true)
     }
     
+    func getPlainAlert(title: String?, message: String, completionAction: (() -> Void)? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let dismiss = UIAlertAction(title: "Dismiss", style: .default) { _ in
+            completionAction?()
+        }
 
+        alert.addAction(dismiss)
+        self.controller.present(alert, animated: true)
+    }
 }

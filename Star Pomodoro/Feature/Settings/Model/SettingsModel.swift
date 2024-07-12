@@ -39,7 +39,8 @@ struct DocumentationCellModel {
     let icon: UIImage
     let iconBackgroundColor: UIColor
     let link: String
-    let handler: ((_ doubleHeader: String) -> Void)}
+    let handler: ((_ doubleHeader: String) -> Void)
+}
 
 struct InformationCellModel {
     let title: String
@@ -57,6 +58,7 @@ struct WhatsNewModelType {
 }
 
 struct NotificationModel {
+    let tag: Int
     let title: String
     let icon: UIImage
     let iconBackgroundColor: UIColor

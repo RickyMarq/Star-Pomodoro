@@ -15,7 +15,7 @@ struct FastPomodoro: View {
     @State var backgroundTimestamp: Date?
     @State var timeRemaining: Int = 1500
     @State var breakTime = 300
-    @State var timer: Timer?
+    @State var timer: Timer?  
     @State var defaults = UserDefaults.standard
     @State var giveUp = false
     @State var ButtonTitle = "Start"
@@ -35,58 +35,72 @@ struct FastPomodoro: View {
     @State var userCurrentDate: Date?
     @State var savedSeconds: Int?
     
-    
     var body: some View {
         if #available(watchOS 8.0, *) {
             NavigationView {
                 ScrollView {
                     VStack(alignment: .center, spacing: 10) {
                         HStack {
-                            Text(tagSelected ?? "Read")
-                                .padding(3)
-                                .font(Font.system(size: 12))
-                            NavigationLink(destination: TagsScreen(), isActive: $showNewView) {
-                                Button {
-                                    print("Change label")
-                                    showNewView = true
-                                } label: {
-                                    Image(systemName: "checkmark")
-                                        .padding(3)
-                                }
-                            }
-                            .clipShape(Circle())
-                            .foregroundColor(Color.secondary)
-                            .frame(maxWidth: 15, maxHeight: 15)
-                            
-                        }
-                        .padding(3)
-                        .background(Color.accentColor.opacity(0.5))
-                        .cornerRadius(10)
+//                            NavigationLink(tagSelected ?? "") {
+//                                TagsScreen()
+//                            }
+//                            .background(Color.green.opacity(0.5))
+//                            .cornerRadius(10)
+//                            .padding(.horizontal, 50)
+//                            .padding(.vertical, 10)
+//                            .frame(maxHeight: 30)
+//                            Button {
+//                            } label: {
+//                                Text(tagSelected ?? "")
+//                                    .foregroundColor(Color.white)
+//                            }
+//                            .background(Color.orange.opacity(0.5))
+//                            .cornerRadius(10)
+//                            .padding(.horizontal, 30)
+//                            .padding(.top, 10)
                         
+                            
+
+//                            Text(tagSelected ?? "Read")
+//                                .padding(8)
+//                                .font(Font.system(size: 12))
+                            
+                            NavigationLink(destination: TagsScreen(), isActive: $showNewView) {
+                                
+                                HStack {
+                                    Text(tagSelected ?? "Read")
+                                        .padding(4)
+                                        .font(Font.system(size: 14))
+                                    Image(systemName: "checkmark")
+                                }
+                                
+                            }
+                            .background(Color.accentColor.opacity(0.1))
+                            .cornerRadius(10)
+                            .padding(.horizontal, 46)
+                            .frame(maxHeight: 50)
+                        }
                         
                         ZStack {
-                            //                            Circle()
-                            //                                .foregroundColor(Color.secondary)
-                            //                                .padding(.top, 5)
                             VStack {
                                 Text(timeString(timeRemaining))
                                     .bold()
                                     .font(.title)
                                     .frame(maxWidth: .infinity, alignment: .center)
-                                //                                    .shadow(color: .gray ,radius: 1, x: -1, y: 0)
+                                    .shadow(color: .red ,radius: 0.5, x: -0.5, y: 0)
                                 HStack {
                                     Button {
                                         if giveUp == false {
                                             homeTitle = "Get focused"
-                                            startTimer(TimeRemaining: 1500)
-                                            NotificationController.sharedObjc.getNotification(title: "Time to rest", body: "Your timer ended", timeInterval: 60, identifier: "")
+                                            startTimer(TimeRemaining: timeRemaining)
+                                            NotificationController.sharedObjc.getNotification(title: "Time to rest", body: "Your timer ended", timeInterval: Double(timeRemaining), identifier: "")
                                             ButtonTitle = "Give up?"
                                             imageName = "pause"
                                             giveUp = true
                                             TimerHasStarted = true
                                             let date = Date()
                                             timerEnd = date.addingTimeInterval(TimeInterval(timeRemaining))
-                                            timeRemaining = 1500
+           //                                 timeRemaining = 1500
                                         } else if giveUp == true {
                                             // Need to pause the timer...
                                             print("Pause time...")
@@ -104,7 +118,6 @@ struct FastPomodoro: View {
                                     
                                     if giveUp == true {
                                         Button {
- //                                           AudioController.sharedObjc.playSelectedAudio(audio: "click.mp3")
                                             showSheetToCancel.toggle()
                                         } label: {
                                             Image(systemName: "xmark")
@@ -136,31 +149,14 @@ struct FastPomodoro: View {
                                 }
                                 .padding()
                                 .frame(minWidth: WKInterfaceDevice.current().screenBounds.width)
-                                //                               .clipShape(Circle())
-                                //                               //   .background(Color.accentColor)
-                                //                               .foregroundColor(Color.black)
-                                //   .background(Color.accentColor)
-                                
-                                //   .clipped()
-                                //                              .shadow(color: .black, radius: 0.5, x: 1, y: 1)
-                                //    .cornerRadius(10)
-                                //                                .frame(width: 50, height: 30)
-                                
-                                
                             }
                         }
-                        
-                        //                        Text("Phrase")3
-                        //                            .frame(maxWidth: .infinity, alignment: .center)
-                        
-                        
                         HStack {
                             ForEach(getPhrase, id: \.id) { phrase in
                                 VStack {
                                     Text(phrase.phrase ?? "")
                                         .multilineTextAlignment(.center)
                                         .frame(maxWidth: .infinity, alignment: .center)
-                                    //  .background(Color.init(hex: "#F97A7A"))
                                         .cornerRadius(10)
                                         .padding()
                                     
@@ -177,33 +173,12 @@ struct FastPomodoro: View {
                     }
                     .padding()
                     .cornerRadius(10)
-                    
-                    //                   .background(Color.init(hex: "#F97A7A"))
-                    //                        ForEach(phrasesModel) { model in
-                    //                            if customPersonalitySelected == model.personalityName {
-                    //                                VStack {
-                    //                                    ForEach(phrasesModel) { model in
-                    //                                        Text(model.phases[0].phrase)
-                    //                                            .bold()
-                    //                                            .cornerRadius(10)
-                    //                                            .multilineTextAlignment(.center)
-                    //                                            .frame(maxWidth: .infinity, alignment: .center)
-                    //                                            .background(Color.init(hex: "#F97A7A"))
-                    //                                            .padding()
-                    //
-                    //                                    }
-                    //                                }
-                    //
-                    //                            }
-                    //                        }
-                    //                        .padding()
                 }
                 
                 
                 .navigationTitle(homeTitle ?? "Pomodoro")
                 .accentColor(Color.green)
                 .navigationBarTitleDisplayMode(.inline)
-                
                 .onAppear(perform: {
                     userCurrentDate = Date()
                     self.configDay()
@@ -216,14 +191,6 @@ struct FastPomodoro: View {
                         getUnmotivadedPhrase()
                     }
                     tagSelected = defaults.string(forKey: "TagSelected") ?? "Study"
-                    print("DEBUG MODE: VIEW CARREGADA")
-                    //                    if TimerHasStarted == true {
-                    //                        if let timerEnd = timerEnd {
-                    //                            let currentTime = Date()
-                    //                            let timeInterval = Int(timerEnd.timeIntervalSince(currentTime))
-                    //                            timeRemaining = timeInterval > 0 ? timeInterval : 0
-                    //                        }
-                    //                    }
                     
                     if TimerHasStarted {
                         if let backgroundTimestamp = UserDefaults.standard.object(forKey: "BackgroundTimestamp") as? Date {
@@ -241,7 +208,7 @@ struct FastPomodoro: View {
                             }
                         }
                         
-                    }
+                    } 
                     
                 })
                 
@@ -252,13 +219,12 @@ struct FastPomodoro: View {
             }
             
             .onDisappear(perform: {
-                if TimerHasStarted {
+                print("Will dissapear...")
                     self.stopTimer()
                     backgroundTimestamp = Date()
                     defaults.setValue(timeRemaining, forKey: "SavedMinuteCountDown")
                     defaults.setValue(backgroundTimestamp, forKey: "BackgroundTimestamp")
                     defaults.synchronize()
-                }
             })
             
             .onAppear {

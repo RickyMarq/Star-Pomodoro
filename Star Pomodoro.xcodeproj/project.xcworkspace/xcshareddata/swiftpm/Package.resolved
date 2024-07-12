@@ -1,12 +1,48 @@
 {
   "pins" : [
     {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/Alamofire",
+      "state" : {
+        "revision" : "b2fa556e4e48cbf06cf8c63def138c98f4b811fa",
+        "version" : "5.8.0"
+      }
+    },
+    {
+      "identity" : "charts",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/danielgindi/Charts",
+      "state" : {
+        "revision" : "0a229f8c914b0ec93798cee058cf75b339297513",
+        "version" : "5.0.0"
+      }
+    },
+    {
+      "identity" : "floatingpanel",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/scenee/FloatingPanel",
+      "state" : {
+        "revision" : "debeca1fb27fe2730f5c54bbb4eb22bc9b8f7a44",
+        "version" : "2.7.0"
+      }
+    },
+    {
       "identity" : "hgcircularslider",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/HamzaGhazouani/HGCircularSlider",
       "state" : {
         "revision" : "2b98462d32bf7211851aa73537dbaba5dd80229e",
         "version" : "2.2.1"
+      }
+    },
+    {
+      "identity" : "iqkeyboardmanager",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/hackiftekhar/IQKeyboardManager",
+      "state" : {
+        "revision" : "ea08e08958890043019d248065fe3d825f338087",
+        "version" : "6.5.12"
       }
     },
     {
@@ -25,6 +61,15 @@
       "state" : {
         "revision" : "53a3a2f16730af6709283f83a9dc75a3dde252ff",
         "version" : "2.10.2"
+      }
+    },
+    {
+      "identity" : "taglistview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ElaWorkshop/TagListView",
+      "state" : {
+        "revision" : "b30b61826736f4d9ec04aef5df891f3914423f16",
+        "version" : "1.4.1"
       }
     }
   ],
